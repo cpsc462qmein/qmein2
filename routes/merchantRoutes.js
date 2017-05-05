@@ -80,15 +80,14 @@ router.post('/completeTransaction', function(req, res){
 	console.log(req.body.businessQueue);
 	console.log(req.body.id);
 	console.log(req.body.email);
-	Queue.findOneAndRemove({businessUniqueID: req.body.businessQueue, _id:ObjectId(req.body.id)}, function(err, todo){
-		if(err) throw err;
-		else
-		{
-			User.findOneAndUpdate({username:req.body.email},{businessQueued: null, queued: false}, function(err){
-				if(err) throw err;
-				else res.redirect('/');
-			});
-		}
+	Queue.findOneAndRemove({ businessUniqueID: req.body.businessQueue, _id: ObjectId(req.body.id) }, function(err, todo) {
+        if (err) throw err;
+        else {
+            Queue.find({ businessUniqueID: req.body.businessQueue }, function(err, doc) {
+                if (err) throw err;
+                else res.render('merchantlanding', { queuedata: doc });
+            });
+        }
 	});
 });
 
