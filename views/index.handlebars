@@ -33,24 +33,27 @@
                     {{#if user.queued}}
                         <div class="col-sm-12">
                             <div class="well">
-                                <h2>Hello, <strong>{{user.firstname}} {{user.lastname}}</strong>!</h2>
+                                <div class="textthis">
+								<h2>Hello, <strong>{{user.firstname}} {{user.lastname}}</strong>!</h2>
                                 <h3>You are in a queue!</h3>
-                                <p>Need to check your status in the queue? Click below.</p>
+                                <p>Need to check your status in the queue? Click below.</p></div>
                                 <form method="post" action="/queuestatus">
                                     <input type="hidden" name="queue" value={{user.businessQueued}}>
                                     <input type="hidden" name="user" value={{user.username}}>
                                     <input type="hidden" name="id" value={{user._id}}>
-                                    <button type="submit" class="btn btn-primary btn-lg">Check Status</button>
+                                    <button type="submit" class="button"><span>Check Status</span></button>
                                 </form>
                             </div>
                         </div>
                     {{else}}
                         <div class="col-sm-12">
                             <div class="well">
+							<div class="textthis">
                                 <h2>Hello, <strong>{{user.firstname}} {{user.lastname}}</strong>!</h2>
                                 <h3>Start Queuing Up!</h3>
                                 <p>What are you waiting for? Check out the merchant list and start queuing up.</p>
-                                <a class="btn btn-primary btn-lg" href="userlanding">Queue Up</a>
+                                <a class="button" href="userlanding"><span>Queue Up</span></a>
+								</div>
                             </div>
                         </div>
                     {{/if}}
@@ -59,16 +62,21 @@
             {{#if user.businessname}}
             <div class="col-sm-12">
                 <div class="well">
+				<div class="textthis">
                     <h2>Monitor Your Queue!</h2>
                     <p>Start using the queue to speed up customer transactions and optimize your business!</p>
                     <form method="post" action="/merchantlanding">
                         <input type="hidden" name="businessUID" value={{user.businessUniqueID}}>
-                        <button type="submit" class="btn btn-primary btn-lg">Current Queue</button>
+                        <button type="submit" class="button"><span>Current Queue</span></button>
                     </form>
+				</div>
                 </div>
             </div>
             {{/if}}
         </div>
 		<br></br>
     </div>
+	
+
+	
 	

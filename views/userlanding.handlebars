@@ -21,7 +21,7 @@
 				{{#each merchdata}}
 				<tbody>
 					<tr>
-						<td class="col-xs-4">{{businessname}}</td>
+						<td class="col-xs-4"><div class="newfont">{{businessname}}</div></td>
 						<td class="col-xs-4">{{businessAddress}}<br>{{businessCity}}, {{businessState}} {{businessZip}}</td>
 						<td class="col-xs-2">{{phonenumber}}</td>
 						<td class="col-xs-2" style="text-align: center">
@@ -34,8 +34,7 @@
 									<input type="hidden" class="form-control" name="phonenumber" value={{@root.user.phonenumber}}>
 									<input type="hidden" class="form-control" name="businessQueued" value={{businessUniqueID}}>
 									<input type="hidden" class="form-control" name="queued" value="true">
-	  							</div>
-	  							<button type="submit" class="btn btn-lg btn-info">QmeIn</button>
+	  								<button type="submit" class="button"><span>QmeIn</span></button></div>
 							</form>
 						</td>
 					</tr>
